@@ -3,7 +3,7 @@ import React from 'react'
 function DefaultComp() {
     return (
         <div>
-            <h2>Hello from default component</h2>
+            <div className="well">Sorry the request page doesn't exist.</div>
         </div>
     )
 }
