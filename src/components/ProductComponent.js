@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -8,8 +8,6 @@ import { addToCart, removeFromCart } from '../redux';
 function ProductComponent(props) {
 
     const { product, cart, addToCart, removeFromCart } = props
-
-    console.log(props)
 
     const linkPayload = {
         pathname: "/details",
@@ -31,11 +29,9 @@ function ProductComponent(props) {
                 quantity: 1
             }
 
-            console.log("code passed to add before : ", product.code);
             addToCart(oneProduct);
         }
         else {
-            console.log("code passed to remove before : ", product.code);
             removeFromCart(product.code)
         }
     }
@@ -43,7 +39,7 @@ function ProductComponent(props) {
     return (
         <React.Fragment>
             <Link to={linkPayload} className="thumbnail">
-                <img src={`./${product.img}`} /></Link>
+                <img src={`./${product.img}`} alt="product_image" /></Link>
             <p>{product.title}</p>
             <p>{`$${product.price}`}</p>
             <button className="btn btn-success btn-sm" onClick={cartClickHandler}>{btnMsg}</button>
