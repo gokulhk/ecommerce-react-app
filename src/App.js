@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 
 //React Router imports
-import { Switch, Route, Router } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 //React-Redux imports
 import { Provider } from 'react-redux';
@@ -15,6 +15,8 @@ import ProductDetail from './components/ProductDetail'
 import MyOrders from './components/MyOrders'
 import MyCart from './components/MyCart'
 import DefaultComp from './components/DefaultComp';
+import PaymentComponent from './components/PaymentComponent';
+import FooterComponent from './components/FooterComponent';
 
 function App() {
 
@@ -29,8 +31,10 @@ function App() {
           <Route path='/details' exact strict component={ProductDetail} />
           <Route path='/my_orders' exact strict component={MyOrders} />
           <Route path='/my_cart' exact strict component={MyCart} />
+          <Route path='/make_payment' exact strict component={PaymentComponent} />
           <Route component={DefaultComp} />
         </Switch>
+        <FooterComponent />
       </div>
 
     </Provider>

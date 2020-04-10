@@ -52,3 +52,8 @@
 .empty-cart-btn{
   float : right;
 }
+
+.payment-type{
+  background-color: whitesmoke;
+  max-width: 250px;
+}
