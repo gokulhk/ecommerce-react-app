@@ -5,19 +5,18 @@ import {
     SET_QUANTITY,
     PLACE_ORDER,
     CANCEL_ORDER,
-    COMPLETED_ORDER
+    COMPLETE_ORDER
 } from './mobileTypes'
 
 
-//set initial State - sample entries for simualtion
-
+//set initial State 
 const initialState = {
+    orderIdCounter : 0, 
     completedOrders : [],
     cancelledOrders : [],
     activeOrders : [],
     cart : []
 }
-// [ 'AMKD32k' , 'AMKhss2k', 'AM78h2k', 'AMKhqw2k', 'AasWh7s2k', 'MKodh21kj']
 
 //Reducer function 
 const mobileReducer = ( state = initialState, action ) => {
@@ -54,22 +53,23 @@ const mobileReducer = ( state = initialState, action ) => {
             } )
         }
 
-
-        case PLACE_ORDER : return {
+        case PLACE_ORDER : 
+        return {
             ...state,
+            orderIdCounter : state.orderIdCounter + 1,
             activeOrders : [ ...state.activeOrders, action.payload]
         }
 
         case CANCEL_ORDER : return {
             ...state,
-            cancelledOrders : [ ...state.cancelledOrders,  state.activeOrders.filter( order => order.orderId === action.payload )],
-            activeOrders : state.activeOrders.filter( order => order.orderId !== action.payload)
+            cancelledOrders : [ ...state.cancelledOrders,  action.payload ],
+            activeOrders : state.activeOrders.filter( order => order.orderId !== action.payload.orderId)
         }
 
-        case COMPLETED_ORDER : return {
+        case COMPLETE_ORDER : return {
             ...state,
-            completedOrders : [ ...state.completedOrders, state.activeOrders.filter( order => order.orderId === action.payload ) ], 
-            activeOrders : state.activeOrders.filter( order => order.orderId !== action.payload)
+            completedOrders : [ ...state.completedOrders, action.payload ], 
+            activeOrders : state.activeOrders.filter( order => order.orderId !== action.payload.orderId)
         }
 
         default :  return state

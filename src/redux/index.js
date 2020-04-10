@@ -2,5 +2,5 @@ export {
     addToCart, removeFromCart,
     emptyCart, setQuantity,
     placeOrder, cancelOrder,
-    completedOrder
+    completeOrder
 } from './mobiles/mobileActions'

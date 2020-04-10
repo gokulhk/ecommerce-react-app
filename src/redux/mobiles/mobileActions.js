@@ -5,7 +5,7 @@ import {
     SET_QUANTITY,
     PLACE_ORDER,
     CANCEL_ORDER,
-    COMPLETED_ORDER
+    COMPLETE_ORDER
 } from './mobileTypes'
 
 //Cart Actions
@@ -52,9 +52,9 @@ export const cancelOrder = ( orderId ) => {
     }
 }
 
-export const completedOrder = ( orderId ) => {
+export const completeOrder = ( orderId ) => {
     return {
-        type : COMPLETED_ORDER,
+        type : COMPLETE_ORDER,
         payload : orderId
     }
 }

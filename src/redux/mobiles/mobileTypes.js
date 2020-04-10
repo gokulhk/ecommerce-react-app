@@ -8,4 +8,4 @@ export const SET_QUANTITY = 'SET_QUANTITY';
 //Order related actions
 export const PLACE_ORDER = 'PLACE_ORDER';
 export const CANCEL_ORDER = 'CANCEL_ORDER';
-export const COMPLETED_ORDER = 'COMPLETED_ORDER';
+export const COMPLETE_ORDER = 'COMPLETE_ORDER';
