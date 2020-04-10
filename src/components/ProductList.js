@@ -9,24 +9,19 @@ function ProductList() {
     const [productItems, setProductItems] = useState([]);
 
 
-    //calculate row count
-    const rowCount = storeProducts.length / 4; // 4 products displayed per row in a desktop view
-    console.log("no of phones : ", rowCount);
-
-
-
 
     useEffect(() => {
         let finalItems = [];
         let items = []
         let cur = 0;
-        let count = 0;
+        
+        //calculate row count
+        const rowCount = storeProducts.length / 4; // 4 products displayed per row in a desktop view
         for (let k = 0; k < rowCount; ++k) {
 
             items = [];
             for (let i = 0; i < 4; ++i) {
                 let curObj = storeProducts[cur++];
-                ++count;
                 items.push(<div className="col-sm-3 playcard" key={curObj.id}>
                     <ProductComponent product={curObj} />
                 </div>)
@@ -38,7 +33,6 @@ function ProductList() {
         }
 
         setProductItems(finalItems)
-        console.log("Main loop ran : ", productItems.length);
     }, [])
 
 
@@ -48,12 +42,8 @@ function ProductList() {
     return (
         <>
             <NavBar />
-            <h2> Hello From Product List </h2>
-
             <div className="container-fluid">
-
-                {productItems.map( item => item)}
-
+                {productItems.map(item => item)}
             </div>
 
         </>

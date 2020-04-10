@@ -9,7 +9,6 @@ import { addToCart, removeFromCart } from '../redux';
 function ProductDetail(props) {
 
     const product = props.location.product;
-
     const { cart, addToCart, removeFromCart } = props;
 
     //redirect blank request to home page
@@ -19,7 +18,6 @@ function ProductDetail(props) {
 
     //button display msg
     const addedToCart = cart.filter( oneProduct => oneProduct.code === product.code ).length !== 0;
-    
     const btnMsg = addedToCart ? "Remove from Cart" : "Add to Cart";
 
     //add to cart handler 
@@ -33,11 +31,9 @@ function ProductDetail(props) {
                 quantity : 1
             }
 
-            console.log("code passed to add before : ", product.code);
             addToCart(oneProduct);
         }
         else {
-            console.log("code passed to remove before : ", product.code);
             removeFromCart(product.code)
         }
     }
@@ -48,7 +44,7 @@ function ProductDetail(props) {
 
             <div className="container-fluid row">
                 <div className=" col-sm-4">
-                    <img className="product-desc-img" src={`./${product.img}`} style={{ float: 'left' }} />
+                    <img className="product-desc-img" src={`./${product.img}`} style={{ float: 'left' }} alt="product_image" />
                 </div>
 
                 <div className="container-fluid col-sm-8">
