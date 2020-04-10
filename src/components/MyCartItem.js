@@ -6,13 +6,11 @@ import { removeFromCart, setQuantity, placeOrder } from '../redux'
 function MyCartItem(props) {
 
     //destructure props
-    const { product, cart, setQuantity, removeFromCart, placeOrder } = props;
+    const { product, cart, setQuantity, removeFromCart } = props;
     
     //quantity finder
     const currentProduct = cart.filter(oneProduct => oneProduct.code === product.code)[0];
     const [newQuantity, setNewQuantity] = useState(currentProduct.quantity);
-    console.log("current Quantity : ", currentProduct);
-    console.log("Intial new Quantity : ", newQuantity);
 
     //ref for quantity input element
 
@@ -21,11 +19,8 @@ function MyCartItem(props) {
         product
     };
 
-    console.log("render check : MyCartItem ")
-
     //remove handler
     const removeHandler = () => {
-        console.log("id passed from for del : ", product.code);
         removeFromCart(product.code);
     }
 
@@ -58,18 +53,11 @@ function MyCartItem(props) {
         }
     }
 
-    //order Handler
-    const orderHandler = () => {
-
-        //creates order object
-
-    }
-
     return (
         <div className="row product-in-cart" key={product.code}>
             <div className="col-sm-3">
                 <Link to={linkPayload}  >
-                    <img src={`./${product.img}`} className="col-sm-8 img-responsive" /></Link>
+                    <img src={`./${product.img}`} className="col-sm-8 img-responsive" alt="product_image"/></Link>
 
             </div>
 
