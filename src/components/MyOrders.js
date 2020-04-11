@@ -28,7 +28,7 @@ function MyOrders(props) {
                 </div>
 
                 <div className="row">
-                    <h2>Your Previous sucsessfull Orders</h2>
+                    <h2>Your Previous successfull Orders</h2>
                     {
                         (completedOrders.length === 0) ?
                             (<div className="well">No Orders to display.</div>)

@@ -20,8 +20,6 @@ import FooterComponent from './components/FooterComponent';
 
 function App() {
 
-  console.log("main com rendered")
-
   return (
     <Provider store={mobileStore}>
 
